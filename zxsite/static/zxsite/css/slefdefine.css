@@ -1,0 +1,32 @@
+.top-occupation {
+    height: 40px;
+}
+.mainpage {
+    width: 1000px;
+}
+.top-block {
+    height:450px;
+    vertical-align:bottom;
+}
+
+.top-block-1 {
+    height:100px;
+     width: 900px;
+}
+.top-block-2 {
+    height:62px;
+     width: 900px;
+}
+.top-block-3 {
+    height:288px;
+}
+.modifybd {
+    margin-bottom: 0;
+}
+.article-block {
+    width: 1000px;
+}
+.article-block-1{
+    width: 900px;
+    padding-top: 30px;
+}
