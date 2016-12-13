@@ -1,0 +1,33 @@
+{% extends 'zxsite/base1.html' %}
+{% block login %}
+<script>
+    $('body').css('background-color','#e7e7e7');
+    $(document).ready(function () {
+
+    })
+</script>
+    <div class="center-block" style="background-color: #fafbff;width: 400px;height:350px;margin-top: 150px;">
+        <div class="container-fluid">
+            <form action="" class="form-div" method="post"> {#   selfdefine #}
+                {% csrf_token %}
+                <label for="" class="center-block" style="font-size: 30px;text-align: center">Welcome Back</label>
+
+                <hr>
+
+                <label for="" class="label label-default">用户名</label>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="username">
+                </div>
+                <label for="" class="label label-default">密码</label>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password">
+{#                    <button type="submit" class="btn btn-default btn-block">login in</button>#}
+                </div>
+                <div class="form-group" style="padding-top: 10px;">
+                    <button type="submit" class="btn btn-default btn-block login-btn"><b>Login</b></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

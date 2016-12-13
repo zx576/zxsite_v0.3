@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'zxsite/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'zxsite/css/slefdefine.css' %}">
+    <script type="text/javascript" src="{% static 'zxsite/js/jquery-3.1.1.js' %}"></script>
+    <script type="text/javascript" src="{% static 'zxsite/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+{% block login %}{% endblock %}
+{% block register %}{% endblock %}
+{% block newarticle %}{% endblock %}
+</body>
+</html>

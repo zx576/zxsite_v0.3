@@ -1,0 +1,61 @@
+{% extends 'zxsite/base.html' %}
+{% block subbase1 %}
+{#    {% load static %}#}
+<div class="top-occupation"></div>
+<div class="container-fluid">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+{#    {% block mainpage %}{% endblock %}#}
+        <div class="center-block mainpage" >
+            <div class="top-block" style="background-color: #fafbff">
+{#                title#}
+                <div class="center-block top-block-1" style="padding-top: 40px">
+                    <p class="h1"><b>ZXSITE</b></p>
+                </div>
+{#                signiture#}
+                <div class="center-block top-block-2">
+                    <P>Where there's a will,there is a way</P>
+                </div>
+{#                图片#}
+                <div class="top-block-3">
+                    <img src="http://pythonexcels.com/blog/wp-content/themes/twentyeleven/images/headers/hanoi.jpg" alt="">
+                </div>
+{#               导航#}
+
+{#                占位块#}
+{#                <div style="height: 30px;">occupation</div>#}
+{#                正文#}
+            </div>
+{#            导航条#}
+            <div>
+                <ol class="breadcrumb modifybd" style="padding-left: 50px">
+                    <li class="h5"><a href="/">Home</a></li>
+                    <li class="h5"><a href="">About</a></li>
+{#                    {% if superuser.is_authenticated %}#}
+                        <li class="h5"><a href="/manage/">Else</a></li>
+{#                    {% endif %}#}
+                    {% if not user.is_authenticated %}
+                        <li><a href="/login/">sign in</a></li>
+                        <li><a href="/register/">sign up</a></li>
+                    {% else %}
+                        <li class="text-capitalize"><a href="/user/{{ user.id }}">{{ user.username }}</a></li>
+                        <li><a href="/logout/">Logout</a></li>
+                    {% endif %}
+                </ol>
+            </div>
+{#           内容#}
+            <div class="article-block" style="background-color: #fafbff">
+                <div class="center-block article-block-1" style="height: 1000px;">
+            {% block index %}{% endblock %}
+            {% block article_ins %}{% endblock %}
+            {% block manage %}{% endblock %}
+{#            内容#}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+
+{% endblock %}

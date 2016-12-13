@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 #userprofile
 class Article(models.Model):
     author = models.ForeignKey('Bloger', verbose_name='作者')
-    # tags = models.ManyToManyField('Tag', verbose_name='标签')
+    tags = models.ManyToManyField('Tag', verbose_name='标签')
     title = models.CharField('标题', max_length=50)
     content = models.TextField('正文')
     # abstract = models.CharField('摘要', max_length=50)
