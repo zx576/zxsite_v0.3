@@ -6,14 +6,25 @@
         $('body').css('background-color','#e7e7e7');
     </script>
 {#    <div class="center-block wangdiv" id="wangedit"></div>#}
-
+{#    <p id="info"></p>#}
     <div class="center-block newarticle-div">
         <div class="container-fluid">
-            <form action="" method="post" id="form1" class="form-div">
+            <form action="" method="post" id="form1" class="form-div" autocomplete="off">
+                <input type="hidden" name="userid" value="{{ user.id }}" id="userid1">
+                <input type="hidden" name="atcid" value="new" id="atcid1">
                 <div class="form-group">
-                    <input type="text" class="newarticle-input newarticle-input-title" placeholder="标题">
+                    <input type="text" class="newarticle-input newarticle-input-title" placeholder="标题" id="title">
                 </div>
-
+                <div class="input-group-sm">
+                    <span style="font-family: 微软雅黑;font-size: 17px;padding-left: 15px;font-weight: bold;">标签:</span>
+                    <input type="text" class="form-control-static" id="tags" style="width:400px;border: 0;outline: none;" placeholder="分号分开不同标签">
+                    <span></span>
+                    <span id="span4status" style="border: thin">
+                        <label for="status">status:</label>
+                        <b id="status">P</b>
+                    </span>
+                    <span style="margin-left: 20px;color: #0f0f0f" id="info">Enjoy editing</span>
+                </div>
 {#                <hr>#}
 
                 <div>
@@ -27,7 +38,6 @@
 
     <script type="text/javascript" src="{% static 'zxsite/wangEditor/dist/js/wangEditor.min.js' %}"></script>
     <script type="text/javascript">
-
         var editor = new wangEditor('wangedit');
          editor.config.menus =  [
         'bold',
@@ -50,9 +60,54 @@
         'insertcode',
         'undo',
         'redo',
-        'fullscreen',
+        'fullscreen'
     ];
         editor.create();
 
+    </script>
+    <script>
+    $('#span4status').click(function () {
+        var st = $('#status').text();
+        if (st != 'P'){
+            $('#status').text('P');
+        } else {
+            $('#status').text('D')
+        }
+    });
+        var save = function(){
+            console.log('saving');
+            var content = $('#wangedit').val();
+            var title = $('#title').val();
+            var tags = $('#tags').val();
+            var userid = $('#userid1').val();
+            var atcid = $('#atcid1').val();
+            var status = $('#status').text();
+            console.log(content,title,tags,userid,atcid,status);
+            if (content.length > 10 && title.length >0){
+                console.log('step_if');
+                $('#info').text('saving');
+                $.post('save/',{
+                    'title' : title,
+                    'content':content,
+                    'tags':tags,
+                    'userid':userid,
+                    'atcid':atcid,
+                    'status':status,
+                   csrfmiddlewaretoken: '{{ csrf_token }}'
+                },function (data) {
+                   console.log('stepdata');
+                   var now = new Date();
+                   var str = now.toString();
+                   var nowstr = str.substring(0,24);
+                   $('#info').text(nowstr+'saved');
+                   $('#atcid1').val(data.atcid);
+                   console.log($('#atcid1').val())
+               });
+
+            } else {
+               $('#info').text('Nonempty Requirement')
+            };
+        };
+        setInterval(save,10000)
     </script>
 {% endblock %}

@@ -7,7 +7,7 @@
     <div class="col-md-10">
 {#    {% block mainpage %}{% endblock %}#}
         <div class="center-block mainpage" >
-            <div class="top-block" style="background-color: #fafbff">
+            <div class="top-block" style="background-color: #ffffff">
 {#                title#}
                 <div class="center-block top-block-1" style="padding-top: 40px">
                     <p class="h1"><b>ZXSITE</b></p>
@@ -28,15 +28,15 @@
             </div>
 {#            导航条#}
             <div>
-                <ol class="breadcrumb modifybd" style="padding-left: 50px">
-                    <li class="h5"><a href="/">Home</a></li>
-                    <li class="h5"><a href="">About</a></li>
-{#                    {% if superuser.is_authenticated %}#}
-                        <li class="h5"><a href="/manage/">Else</a></li>
-{#                    {% endif %}#}
+                <ol class="breadcrumb modifybd" style="">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="">About</a></li>
+                    {% if user.is_superuser %}
+                        <li><a href="/manage/">Manage</a></li>
+                    {% endif %}
                     {% if not user.is_authenticated %}
-                        <li><a href="/login/">sign in</a></li>
-                        <li><a href="/register/">sign up</a></li>
+                        <li><a href="/login/">Sign in</a></li>
+                        <li><a href="/register/">Sign up</a></li>
                     {% else %}
                         <li class="text-capitalize"><a href="/user/{{ user.id }}">{{ user.username }}</a></li>
                         <li><a href="/logout/">Logout</a></li>
@@ -44,7 +44,7 @@
                 </ol>
             </div>
 {#           内容#}
-            <div class="article-block" style="background-color: #fafbff">
+            <div class="article-block" style="background-color: #ffffff">
                 <div class="center-block article-block-1" style="height: 1000px;">
             {% block index %}{% endblock %}
             {% block article_ins %}{% endblock %}
