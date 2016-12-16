@@ -2,14 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b6e70e0-81cf-4449-a6d0-fc1e3ece0795" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/about.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/article_ins.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/indexbydate.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/zxsite/static/zxsite/css/slefdefine.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/static/zxsite/css/simple-sidebar.css" afterPath="$PROJECT_DIR$/zxsite/static/zxsite/css/simple-sidebar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/static/zxsite/css/slefdefine.css" afterPath="$PROJECT_DIR$/zxsite/static/zxsite/css/slefdefine.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/models.py" afterPath="$PROJECT_DIR$/zxsite/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/base.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/base1.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/base1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/index.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/login.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/manage.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/manage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/newarticle.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/newarticle.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/register.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/register.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/subbase1.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/subbase1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/urls.py" afterPath="$PROJECT_DIR$/zxsite/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/views.py" afterPath="$PROJECT_DIR$/zxsite/views.py" />
@@ -43,19 +49,11 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zxsite/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zxsite/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-              <folding />
+            <state relative-caret-position="552">
+              <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,27 +61,41 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zxsite/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="679">
-              <caret line="101" column="23" selection-start-line="101" selection-start-column="23" selection-end-line="101" selection-end-column="23" />
+            <state relative-caret-position="260">
+              <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
               <folding>
-                <element signature="e#0#57#0" expanded="true" />
+                <element signature="e#0#76#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newarticle.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/newarticle.html">
+      <file leaf-file-name="indexbydate.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/indexbydate.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-              <folding>
-                <element signature="e#946#1025#0#HTML" expanded="true" />
-                <element signature="e#1114#1158#0#HTML" expanded="true" />
-                <element signature="e#1260#1280#0#HTML" expanded="true" />
-                <element signature="e#1441#1481#0#HTML" expanded="true" />
-                <element signature="e#1701#1732#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="391">
+              <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="13" column="56" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="30" column="103" selection-start-line="30" selection-start-column="103" selection-end-line="30" selection-end-column="103" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,12 +103,9 @@
       <file leaf-file-name="subbase1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/subbase1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
-              <folding>
-                <element signature="e#329#362#0#HTML" expanded="true" />
-                <element signature="e#1939#1972#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="230">
+              <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,29 +113,11 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-112">
-              <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+            <state relative-caret-position="228">
+              <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
               <folding>
                 <element signature="e#328#371#0#HTML" expanded="true" />
-                <element signature="e#749#774#0#HTML" expanded="true" />
-                <element signature="e#847#901#0#HTML" expanded="true" />
-                <element signature="e#945#989#0#HTML" expanded="true" />
-                <element signature="e#1241#1266#0#HTML" expanded="true" />
-                <element signature="e#1310#1336#0#HTML" expanded="true" />
-                <element signature="e#1582#1607#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="manage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/manage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-322">
-              <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
-              <folding>
-                <element signature="e#1052#1079#0#HTML" expanded="true" />
-                <marker date="1481687123468" expanded="false" signature="2199:2219" ph="..." />
+                <element signature="e#579#605#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,18 +126,18 @@
       <file leaf-file-name="bootstrap.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zxsite/static/zxsite/css/bootstrap.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="3296" column="13" selection-start-line="3296" selection-start-column="13" selection-end-line="3296" selection-end-column="13" />
+            <state relative-caret-position="1610">
+              <caret line="1149" column="29" selection-start-line="1149" selection-start-column="29" selection-end-line="1149" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="slefdefine.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zxsite/static/zxsite/css/slefdefine.css">
+      <file leaf-file-name="selfdefine.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zxsite/static/zxsite/css/selfdefine.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+            <state relative-caret-position="159">
+              <caret line="327" column="12" selection-start-line="327" selection-start-column="12" selection-end-line="327" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -159,8 +150,8 @@
       <list>
         <option value="Python Script" />
         <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -172,25 +163,29 @@
       <list>
         <option value="$PROJECT_DIR$/mysite/settings.py" />
         <option value="$PROJECT_DIR$/zxsite/admin.py" />
-        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/base.html" />
         <option value="$PROJECT_DIR$/mysite/urls.py" />
         <option value="E:/GIT/practice/Crossin-practices/python-practice/practice__9.py" />
         <option value="E:/GIT/practice/Crossin-practices/python-practice/test_practice.py" />
         <option value="$PROJECT_DIR$/zxsite/static/zxsite/js/validate.js" />
-        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/register.html" />
-        <option value="$PROJECT_DIR$/zxsite/models.py" />
-        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/base1.html" />
         <option value="$PROJECT_DIR$/zxsite/static/zxsite/wangEditor/dist/css/newwangEditor.css" />
         <option value="$PROJECT_DIR$/zxsite/static/zxsite/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/login.html" />
-        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/subbase1.html" />
-        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/manage.html" />
-        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/index.html" />
         <option value="$PROJECT_DIR$/zxsite/static/zxsite/css/simple-sidebar.css" />
+        <option value="$PROJECT_DIR$/zxsite/models.py" />
         <option value="$PROJECT_DIR$/zxsite/static/zxsite/css/slefdefine.css" />
+        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/article_ins.html" />
+        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/manage.html" />
+        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/base1.html" />
+        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/newarticle.html" />
+        <option value="$PROJECT_DIR$/zxsite/static/zxsite/css/selfdefine.css" />
+        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/base.html" />
+        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/about.html" />
+        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/subbase1.html" />
+        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/index.html" />
         <option value="$PROJECT_DIR$/zxsite/urls.py" />
         <option value="$PROJECT_DIR$/zxsite/views.py" />
-        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/newarticle.html" />
+        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/indexbydate.html" />
+        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/login.html" />
+        <option value="$PROJECT_DIR$/zxsite/templates/zxsite/register.html" />
       </list>
     </option>
   </component>
@@ -201,10 +196,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
-    <option name="y" value="1" />
-    <option name="width" value="1364" />
-    <option name="height" value="726" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -560,7 +555,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1364" height="726" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -619,37 +614,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/zxsite/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zxsite/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zxsite/static/zxsite/css/slefdefine.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="713">
@@ -677,7 +641,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-          <folding />
+          <folding>
+            <element signature="e#640#680#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -685,7 +651,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -701,7 +669,7 @@
         <state relative-caret-position="161">
           <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
           <folding>
-            <element signature="e#0#57#0" expanded="true" />
+            <element signature="e#0#76#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -747,7 +715,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-          <folding />
+          <folding>
+            <element signature="e#640#680#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -755,7 +725,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -771,7 +743,7 @@
         <state relative-caret-position="161">
           <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
           <folding>
-            <element signature="e#0#57#0" expanded="true" />
+            <element signature="e#0#76#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -802,7 +774,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#640#680#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -810,7 +784,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -847,14 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
           <caret line="132" column="27" selection-start-line="132" selection-start-column="27" selection-end-line="132" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -900,42 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/base1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding>
-            <element signature="e#194#272#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="42" />
-          <folding>
-            <element signature="e#409#450#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zxsite/static/zxsite/css/simple-sidebar.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="371">
@@ -944,97 +876,166 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zxsite/static/zxsite/css/slefdefine.css">
+    <entry file="file://$PROJECT_DIR$/zxsite/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+        <state relative-caret-position="161">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zxsite/static/zxsite/css/bootstrap.css">
+    <entry file="file://$PROJECT_DIR$/zxsite/static/zxsite/css/slefdefine.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="3296" column="13" selection-start-line="3296" selection-start-column="13" selection-end-line="3296" selection-end-column="13" />
+        <state relative-caret-position="299">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+          <folding>
+            <element signature="e#640#680#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/base1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/newarticle.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1633">
+          <caret line="71" column="35" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
+          <folding>
+            <element signature="e#1151#1172#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/manage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-322">
-          <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
+        <state relative-caret-position="161">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <element signature="e#1052#1079#0#HTML" expanded="true" />
-            <marker date="1481687123468" expanded="false" signature="2199:2219" ph="..." />
+            <element signature="e#148#173#0#HTML" expanded="false" />
+            <element signature="e#586#613#0#HTML" expanded="false" />
+            <element signature="e#1182#1210#0#HTML" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zxsite/static/zxsite/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1610">
+          <caret line="1149" column="29" selection-start-line="1149" selection-start-column="29" selection-end-line="1149" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zxsite/static/zxsite/css/selfdefine.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="327" column="12" selection-start-line="327" selection-start-column="12" selection-end-line="327" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/article_ins.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+          <folding>
+            <element signature="e#195#216#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/subbase1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-112">
-          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+        <state relative-caret-position="228">
+          <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
           <folding>
             <element signature="e#328#371#0#HTML" expanded="true" />
-            <element signature="e#749#774#0#HTML" expanded="true" />
-            <element signature="e#847#901#0#HTML" expanded="true" />
-            <element signature="e#945#989#0#HTML" expanded="true" />
-            <element signature="e#1241#1266#0#HTML" expanded="true" />
-            <element signature="e#1310#1336#0#HTML" expanded="true" />
-            <element signature="e#1582#1607#0#HTML" expanded="true" />
+            <element signature="e#579#605#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zxsite/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zxsite/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/subbase1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+        <state relative-caret-position="552">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
           <folding>
-            <element signature="e#329#362#0#HTML" expanded="true" />
-            <element signature="e#1939#1972#0#HTML" expanded="true" />
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zxsite/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="679">
-          <caret line="101" column="23" selection-start-line="101" selection-start-column="23" selection-end-line="101" selection-end-column="23" />
+        <state relative-caret-position="260">
+          <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
           <folding>
-            <element signature="e#0#57#0" expanded="true" />
+            <element signature="e#0#76#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/newarticle.html">
+    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/indexbydate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-          <folding>
-            <element signature="e#946#1025#0#HTML" expanded="true" />
-            <element signature="e#1114#1158#0#HTML" expanded="true" />
-            <element signature="e#1260#1280#0#HTML" expanded="true" />
-            <element signature="e#1441#1481#0#HTML" expanded="true" />
-            <element signature="e#1701#1732#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="391">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="13" column="56" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="30" column="103" selection-start-line="30" selection-start-column="103" selection-end-line="30" selection-end-column="103" />
+          <folding />
         </state>
       </provider>
     </entry>

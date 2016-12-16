@@ -4,18 +4,10 @@
         <div class="col-md-3">
             <div class="nav-side-menu" style="margin-left: -1px">
                 <div class="brand">
-{#                    <span class="glyphicon glyphicon-home"></span>#}
                     <b>ZXSITE</b>
                 </div>
-{#                <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>#}
                 <div class="menu-list">
                     <ul id="menu-content" class="menu-content" >
-{#                        <li>#}
-{#                            <a href="#">#}
-{#                                <span class="glyphicon glyphicon-tasks"></span>#}
-{#                                 Dashboard#}
-{#                            </a>#}
-{#                        </li>#}
                         <li data-toggle="collapse" data-target="#products" class="collapsed">
                             Manage Articles
                             <span class="glyphicon glyphicon-chevron-down" style="padding-left: 34px;"></span>
@@ -34,23 +26,10 @@
                         <ul class="sub-menu collapse" id="service">
                             <li><a href="">Dates</a></li>
                             <li><a href="">Tags</a></li>
-{#                            <li>New Service 3</li>#}
                         </ul>
-
-
-{#                        <li data-toggle="collapse" data-target="#new" class="collapsed">#}
-{#                            New#}
-{#                            <span class="glyphicon glyphicon-chevron-down" style="padding-left: 100px;"></span>#}
-{##}
-{#                        </li>#}
-{#                        <ul class="sub-menu collapse" id="new">#}
-{#                            <li>New New 1</li>#}
-{#                            <li>New New 2</li>#}
-{#                            <li>New New 3</li>#}
-{#                        </ul>#}
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
+            </div>
 
 
 
@@ -59,8 +38,28 @@
 
         </div>
         <div class="col-md-9">
-            {% for article in articles %}
-                {{ article.content | safe}}
+             {% for article in articles %}
+                <div style="" class="self-atc-div">
+                    <h3 style="">{{ article.title }}</h3>
+
+                    <div style="">
+                        <p style="">创建于：{{ article.created_time|date:'Y-m-d' }}</p>
+                        |
+                        分类：
+                        {% for tag in article.tags.all %}
+                        <p class="text-capitalize"><a href="">{{ tag }}</a></p>
+                        {% endfor %}
+                        |
+                        <p>阅读次数：{{ article.views }}</p>
+                    </div>
+
+                    <p class="text-justify self-atc-div-p">{{ article.abstract | safe }}</p>
+
+                    <button class="btn btn-default center-block">
+                        <a href="/article/{{ article.id }}">阅读全文</a>
+                    </button>
+                    <footer>_____________</footer>
+                </div>
             {% endfor %}
         </div>
     </div>

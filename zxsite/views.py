@@ -1,13 +1,15 @@
-from django.shortcuts import render,redirect,HttpResponse
+from django.shortcuts import render,redirect,HttpResponse,render_to_response
 from .models import Article,Bloger,Tag
 from django.contrib.auth import logout,login,authenticate
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core import serializers
 #---------------------主页--------------------------------------------------
 def index(request):
-    article = Article.objects.get(id=1)
+    articles = Article.objects.all().order_by('-created_time')
     content = {
-        'article':article
+        'articles':articles
     }
     return render(request,'zxsite/index.html',content)
 #---------------------管理页--------------------------------------------------
@@ -80,19 +82,21 @@ def savearticle(request):
         content = request.POST.get('content')
         tags = request.POST.get('tags')
         tags_list = handletags(tags) ###处理tags
-        print(tags_list)
+        # print(tags_list)
         status = request.POST.get('status')
         useri = User.objects.get(id=userid)
-        print(useri)
+        # print(useri)
         bloger = Bloger.objects.get(user=useri)
         atcid = request.POST.get('atcid')
-        print(atcid)
+        # print(atcid)
+        abstarct = content[:100]+'......'
         if atcid == 'new':
             newatc = Article.objects.create(
                 title = title,
                 content = content,
                 author = bloger,
                 status = status,
+                abstract = abstarct
             )
             # newatc = Article.objects.get(title__exact=title)
             print(newatc)
@@ -108,6 +112,7 @@ def savearticle(request):
             atc_ins.content = content
             atc_ins.author = bloger
             atc_ins.status = status
+            atc_ins.abstract = abstarct
             for i in tags_list:
                 atc_ins.tags.add(i)
             atc_ins.save()
@@ -135,3 +140,46 @@ def handletags(tags):
             )
         tags_list.append(j_tag)
     return tags_list
+
+#---------------------展示文章--------------------------------------------------
+def article_ins(request,atc_id):
+    print(atc_id)
+    atc_ins = Article.objects.get(id = atc_id)
+    content = {
+        'article':atc_ins
+    }
+    return render(request,'zxsite/article_ins.html',content)
+#---------------------About--------------------------------------------------
+def about(request):
+    # return render_to_response('zxsite/about.html')
+    return render(request,'zxsite/about.html')
+
+#---------------------index--------------------------------------------------
+# def indexbydate(request):
+#     articles = Article.objects.all().order_by('-created_time')[:5]
+#     content = {
+#         'articles':articles
+#     }
+#     return render(request,'zxsite/indexbydate.html',content)
+
+# def datemore(request):
+def indexbydate(request):
+    article_list = Article.objects.all().order_by('-created_time')
+    paginator = Paginator(article_list,3)
+    total_page = paginator.num_pages
+    if request.method == 'POST':
+
+        clicktime = request.POST.get('clicktime')
+        page = clicktime
+        articles = paginator.page(page)
+        articles = serializers.serialize('json',articles)
+        content = {
+            'articles': articles
+        }
+        return JsonResponse(content)
+    else:
+        articles = paginator.page(1)
+        content = {
+            'articles':articles
+        }
+        return render(request,'zxsite/indexbydate.html',content)

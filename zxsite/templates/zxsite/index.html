@@ -14,33 +14,52 @@
                             </a>
                         </li>
                         <li>
-                             <a href="" style="padding-left: 3px">
-                            <span class="glyphicon glyphicon-bookmark" style="font-size: medium;margin-left: -3px;color: red"></span>
-                                <b style="padding-left: 10px;font-size: medium">Newly Published</b>
+                             <a href=""  class="self-NP-a">
+                            <span class="glyphicon glyphicon-bookmark "></span>
+                                <b>Newly Published</b>
                             </a>
                         </li>
 
                         <li>
-                             <a href="" style="padding-left: 3px">
-                            <span class="glyphicon glyphicon-calendar" style="margin-left: -3px"></span>
-                                <b style="padding-left: 10px">Index By Date</b>
+                             <a href="/indexbydate/" class="self-index-a">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                                <b>Index By Date</b>
                             </a>
                         </li>
 
                         <li>
-                             <a href="" style="padding-left: 3px">
-                            <span class="glyphicon glyphicon-tags" style="margin-left: -3px"></span>
-                                <b style="padding-left: 10px">Index By Tag</b>
+                             <a href="" class="self-index-a">
+                            <span class="glyphicon glyphicon-tags"></span>
+                                <b>Index By Tag</b>
                             </a>
                         </li>
                     </ul>
 {#                </div>#}
             </div>
             <div class="col-md-9" >
-                <div class="h3"><b>{{ article.title }}</b></div>
-                <div>{{ article.created_time }}</div>
-                <p class="text-justify" style="font-size: medium ">{{ article.content | safe }}</p>
-                <footer>footer</footer>
+            {% for article in articles %}
+                <div style="" class="self-atc-div">
+                    <h3 style="">{{ article.title }}</h3>
+
+                    <div style="">
+                        <p style="">创建于：{{ article.created_time|date:'Y-m-d' }}</p>
+                        |
+                        分类：
+                        {% for tag in article.tags.all %}
+                        <p class="text-capitalize"><a href="">{{ tag }}</a></p>
+                        {% endfor %}
+                        |
+                        <p>阅读次数：{{ article.views }}</p>
+                    </div>
+
+                    <p class="text-justify self-atc-div-p">{{ article.abstract | safe }}</p>
+
+                    <button class="btn btn-default center-block">
+                        <a href="/article/{{ article.id }}">阅读全文</a>
+                    </button>
+                    <footer>_____________</footer>
+                </div>
+            {% endfor %}
             </div>
         </div>
 {% endblock %}

@@ -1,3 +1,4 @@
+/*subbase.html*/
 .top-occupation {
     height: 40px;
 }
@@ -11,7 +12,8 @@
 
 .top-block-1 {
     height:100px;
-     width: 900px;
+    width: 900px;
+    padding-top: 40px
 }
 .top-block-2 {
     height:62px;
@@ -50,6 +52,8 @@
     margin-left: -25px;
     margin-top: 20px;
 }
+
+
 /*自定义侧边栏*/
 
  .nav-side-menu {
@@ -59,7 +63,7 @@
   font-weight: 700;
   /*background-color: #2e353d;*/
   /*position: fixed;*/
-  top: 0px;
+  top: 0;
   /*width: 300px;  */
   width: 220px;
   height: 100%;
@@ -78,8 +82,8 @@
 .nav-side-menu ul,
 .nav-side-menu li {
   list-style: none;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   line-height: 35px;
   cursor: pointer;
 }
@@ -112,7 +116,7 @@
   border: none;
   line-height: 28px;
   /*border-bottom: 1px solid #23282e;*/
-  margin-left: 0px;
+  margin-left: 0;
   padding-left: 10px;
 }
 .nav-side-menu ul .sub-menu li:hover,
@@ -129,7 +133,7 @@
   vertical-align: middle;
 }
 .nav-side-menu li {
-  padding-left: 0px;
+  padding-left: 0;
   /*border-left: 3px solid #2e353d;*/
   /*border-bottom: 1px solid #23282e;*/
 }
@@ -193,13 +197,25 @@ body {
 }
 
 /*侧边栏结束*/
+
+.self-login-div1{
+    background-color: #ffffff;
+    width: 400px;
+    height:350px;
+    margin-top: 150px;
+}
+.self-login-WB-label{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px
+}
 .login-div{
   margin-top: 500px;
 }
 .form-div{
     margin-top: 20px;
 }
-.login-btn{
+.self-login-btn{
     font-size: large;
     height:45px;
 }
@@ -209,6 +225,7 @@ body {
     height:430px;
     margin-top: 150px;
 }
+/*新建文章 newarticle.html*/
 .newarticle-div{
     background-color: #ffffff;
     width: 800px;
@@ -229,4 +246,98 @@ body {
     padding-left: 13px;
     font-family: 微软雅黑;
     font-weight:bold;
+}
+.self-natc-label{
+
+}
+.self-natc-label span {
+    font-family: 微软雅黑;
+    font-size: 17px;
+    padding-left: 15px;
+    /*font-weight: bold;*/
+}
+.self-natc-label input{
+    width:350px;border: 0;outline: none;
+}
+.self-natc-Sspan{
+    margin-left: 10px;
+    color: #0f0f0f;
+    font-size: 15px;
+}
+/*subbase1.html*/
+.self-footer {
+    height:100px;
+    font-family: 'Segoe Print';
+    text-align: center;
+    padding-top: 60px
+}
+/*首页侧边导航 index.html*/
+.self-NP-a {
+    padding-left: 3px;
+}
+.self-NP-a span {
+    font-size: medium;
+    margin-left: -3px;
+    color: red
+}
+.self-NP-a b {
+    padding-left: 10px;
+    font-size: medium
+}
+.self-index-a {
+    padding-left: 3px
+}
+.self-index-a span {
+    margin-left: -3px
+}
+.self-index-a b {
+    padding-left: 10px
+}
+
+
+/*首页下的文章 index.html*/
+.self-atc-div {
+    font-family: 微软雅黑;
+}
+.self-atc-div h3 {
+    text-align:center;
+    font-weight: bold;
+}
+.self-atc-div div {
+    text-align: center;
+    margin-bottom: 85px;
+    margin-top: 20px
+}
+.self-atc-div div p{
+    display: inline-block;
+}
+.self-atc-div button{
+    margin-bottom: 50px;
+    margin-top: 50px
+}
+.self-atc-div footer{
+    text-align: center;
+    margin-bottom: 50px
+}
+.self-atc-div-p {
+    margin-bottom: 80px;
+    font-size: 15px
+}
+.self-about-block{
+    width: 600px;
+    height:500px;
+}
+.self-about-block img{
+    width: 100px;
+    padding-top: 50px;
+}
+.self-about-textdiv{
+    margin-top: 80px;
+    width:600px;
+}
+.self-about-textdiv p{
+    text-align: center;
+    font-family: "Segoe UI";
+    font-size: 20px;
+    text-transform: capitalize;
 }

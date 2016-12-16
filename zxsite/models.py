@@ -6,7 +6,7 @@ class Article(models.Model):
     tags = models.ManyToManyField('Tag', verbose_name='标签')
     title = models.CharField('标题', max_length=50)
     content = models.TextField('正文')
-    # abstract = models.CharField('摘要', max_length=50)
+    abstract = models.TextField('摘要',null=True,blank=True)
     ARTICLE_STATUS = (
         ('P', 'PUBLIC'),
         ('E', 'EDITING'),

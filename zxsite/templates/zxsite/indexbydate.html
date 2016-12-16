@@ -1,0 +1,56 @@
+{% extends 'zxsite/subbase1.html' %}
+{% block indexbydate %}
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-9" id="cm9">
+            {% for article in articles %}
+                <div style="" class="self-atc-div">
+                    <h3 style="">{{ article.title }}</h3>
+
+                    <div style="">
+                        <p style="">创建于：{{ article.created_time|date:'Y-m-d' }}</p>
+                        |
+                        分类：
+                        {% for tag in article.tags.all %}
+                        <p class="text-capitalize"><a href="">{{ tag }}</a></p>
+                        {% endfor %}
+                        |
+                        <p>阅读次数：{{ article.views }}</p>
+                    </div>
+
+                    <p class="text-justify self-atc-div-p">{{ article.abstract | safe }}</p>
+
+                    <button class="btn btn-default center-block">
+                        <a href="/article/{{ article.id }}">阅读全文</a>
+                    </button>
+                    <footer>_____________</footer>
+                </div>
+            {% endfor %}
+{#            <div class="text-center">#}
+{#                <a id="wannamore">#}
+{#                    Wanna more...#}
+{#                </a>#}
+{#            </div>#}
+        </div>
+    </div>
+
+{#    <script>#}
+{#        $(document).ready(function () {#}
+{#            var clicktime = 1;#}
+{#            $('#wannamore').click(function () {#}
+{#                $.post('',{#}
+{#                    'clicltime':clicktime,#}
+{#                    csrfmiddlewaretoken: '{{ csrf_token }}'#}
+{#                },function (data) {#}
+{#                    $('#cm9').append(#}
+{#                        #}
+{#                    )#}
+{#                })#}
+{#            })#}
+{#        })#}
+{#    </script>#}
+
+
+{% endblock %}

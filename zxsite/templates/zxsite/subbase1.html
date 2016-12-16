@@ -6,34 +6,31 @@
     <div class="col-md-1"></div>
     <div class="col-md-10">
 {#    {% block mainpage %}{% endblock %}#}
-        <div class="center-block mainpage" >
-            <div class="top-block" style="background-color: #ffffff">
+        <div class="center-block mainpage" > {# selfdefine-mainpage #}
+            <div class="top-block" style="background-color: #ffffff"> {# selfdefine-topblock #}
 {#                title#}
-                <div class="center-block top-block-1" style="padding-top: 40px">
-                    <p class="h1"><b>ZXSITE</b></p>
+                <div class="center-block top-block-1"> {# selfdefine-top-block-1 #}
+                    <p class="h1" style="font-family:Chiller"><b>ZXSITE</b></p>
                 </div>
 {#                signiture#}
-                <div class="center-block top-block-2">
-                    <P>Where there's a will,there is a way</P>
+                <div class="center-block top-block-2"> {# selfdefine-top-block-2 #}
+                    <P style="font-size: 16px">Where there's a will,there is a way</P>
                 </div>
 {#                图片#}
-                <div class="top-block-3">
+                <div class="top-block-3"> {# selfdefine-top-block-3 #}
                     <img src="http://pythonexcels.com/blog/wp-content/themes/twentyeleven/images/headers/hanoi.jpg" alt="">
                 </div>
-{#               导航#}
-
-{#                占位块#}
-{#                <div style="height: 30px;">occupation</div>#}
-{#                正文#}
             </div>
 {#            导航条#}
             <div>
-                <ol class="breadcrumb modifybd" style="">
+                <ol class="breadcrumb modifybd"> {# selfdefine-modifybd #}
                     <li><a href="/">Home</a></li>
-                    <li><a href="">About</a></li>
+                    <li><a href="/about/">About</a></li>
+{#                    判断超级用户#}
                     {% if user.is_superuser %}
                         <li><a href="/manage/">Manage</a></li>
                     {% endif %}
+{#                    判断登录#}
                     {% if not user.is_authenticated %}
                         <li><a href="/login/">Sign in</a></li>
                         <li><a href="/register/">Sign up</a></li>
@@ -45,16 +42,26 @@
             </div>
 {#           内容#}
             <div class="article-block" style="background-color: #ffffff">
-                <div class="center-block article-block-1" style="height: 1000px;">
-            {% block index %}{% endblock %}
-            {% block article_ins %}{% endblock %}
-            {% block manage %}{% endblock %}
-{#            内容#}
+                <div class="center-block article-block-1">
+                {% block index %}{% endblock %}
+                {% block article_ins %}{% endblock %}
+                {% block manage %}{% endblock %}
+                {% block about %}{% endblock %}
+                {% block indexbydate %}{% endblock %}
+                    <div class="self-footer">
+                        This is end,Thank you for visiting
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+{#页脚#}
+
+
     <div class="col-md-1"></div>
+
+
+
 </div>
 
 
