@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b6e70e0-81cf-4449-a6d0-fc1e3ece0795" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/comment-inner.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/editarticle.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/errors.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/indexbytag.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/m-edit.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/recyclebin.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/search.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/tag-ins.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/userinfo.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/trolley.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/settings.py" afterPath="$PROJECT_DIR$/mysite/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/urls.py" afterPath="$PROJECT_DIR$/mysite/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/admin.py" afterPath="$PROJECT_DIR$/zxsite/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/models.py" afterPath="$PROJECT_DIR$/zxsite/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/static/zxsite/css/selfdefine.css" afterPath="$PROJECT_DIR$/zxsite/static/zxsite/css/selfdefine.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/about.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/article_ins.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/article_ins.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/index.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/indexbydate.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/indexbydate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/login.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/manage.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/manage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/register.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/templates/zxsite/subbase1.html" afterPath="$PROJECT_DIR$/zxsite/templates/zxsite/subbase1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/urls.py" afterPath="$PROJECT_DIR$/zxsite/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxsite/views.py" afterPath="$PROJECT_DIR$/zxsite/views.py" />
-    </list>
+    <list default="true" id="0b6e70e0-81cf-4449-a6d0-fc1e3ece0795" name="Default" comment="" />
     <ignored path="mysite.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -79,8 +51,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zxsite/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1587">
-              <caret line="216" column="25" selection-start-line="216" selection-start-column="25" selection-end-line="216" selection-end-column="25" />
+            <state relative-caret-position="161">
+              <caret line="154" column="20" selection-start-line="154" selection-start-column="20" selection-end-line="154" selection-end-column="20" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -181,6 +153,7 @@
         <option value="$PROJECT_DIR$/zxsite/templates/zxsite/subbase1.html" />
         <option value="$PROJECT_DIR$/zxsite/templates/zxsite/login.html" />
         <option value="$PROJECT_DIR$/zxsite/views.py" />
+        <option value="$PROJECT_DIR$/mysite/settings_server.py" />
       </list>
     </option>
   </component>
@@ -597,14 +570,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mysite/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zxsite/templates/zxsite/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -984,10 +949,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/settings_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1690">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/zxsite/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1587">
-          <caret line="216" column="25" selection-start-line="216" selection-start-column="25" selection-end-line="216" selection-end-column="25" />
+        <state relative-caret-position="161">
+          <caret line="154" column="20" selection-start-line="154" selection-start-column="20" selection-end-line="154" selection-end-column="20" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>
