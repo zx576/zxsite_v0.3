@@ -4,7 +4,8 @@
     <link rel="stylesheet" href="{% static 'zxsite/css/simple-sidebar.css' %}">
 {#                文章#}
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 col-xs-3">
+
 {#                <div id="sidebar-wrapper">#}
                     <ul class="sidebar-nav" style="margin-left: -41px;margin-top: 10px">
                         <li class="sidebar-brand">
@@ -28,15 +29,18 @@
                         </li>
 
                         <li>
-                             <a href="" class="self-index-a">
+                             <a href="/indexbytag/" class="self-index-a">
                             <span class="glyphicon glyphicon-tags"></span>
                                 <b>Index By Tag</b>
                             </a>
                         </li>
                     </ul>
 {#                </div>#}
+{#                <div style="border-right:thick solid  #ff0000"></div>#}
+{#                <hr width="1" size="500">#}
             </div>
-            <div class="col-md-9" >
+
+            <div class="col-md-9 col-xs-9" >
             {% for article in articles %}
                 <div style="" class="self-atc-div">
                     <h3 style="">{{ article.title }}</h3>

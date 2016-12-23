@@ -61,3 +61,20 @@ class Tag(models.Model):
 
     class meta:
         ordering = ['-related_articles']
+
+
+class Comment(models.Model):
+    author = models.ForeignKey('Bloger',verbose_name='评论人')
+    article = models.ForeignKey('Article',verbose_name='相关文章',default=None)
+    context = models.TextField('评论内容')
+    COMMENT_STATUS = (
+        ('L','LIVE'),
+        ('D','DEAD')
+    )
+    status = models.CharField('状态',max_length=5,choices=COMMENT_STATUS)
+    created_time = models.DateTimeField('评论时间',auto_now_add=True)
+
+    def __str__(self):
+        return self.context
+    class meta:
+        ordering = ['created_time']

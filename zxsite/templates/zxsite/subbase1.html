@@ -1,6 +1,6 @@
 {% extends 'zxsite/base.html' %}
 {% block subbase1 %}
-{#    {% load static %}#}
+    {% load static %}
 <div class="top-occupation"></div>
 <div class="container-fluid">
     <div class="col-md-1"></div>
@@ -10,7 +10,19 @@
             <div class="top-block" style="background-color: #ffffff"> {# selfdefine-topblock #}
 {#                title#}
                 <div class="center-block top-block-1"> {# selfdefine-top-block-1 #}
-                    <p class="h1" style="font-family:Chiller"><b>ZXSITE</b></p>
+                    <p class="h1" style="font-family:Chiller;">
+                        <b>ZXSITE</b>
+
+                    </p>
+                    <div class="pull-right" style="font-size: 17px;margin-top: -50px">
+                        <form action="/search/" method="get" >
+                            <input type="text" class="self-subbase-searchinput" name="search" id="s-input">
+                            <button class="self-subbase-searchbtn" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </form>
+                    </div>
+
                 </div>
 {#                signiture#}
                 <div class="center-block top-block-2"> {# selfdefine-top-block-2 #}
@@ -18,7 +30,7 @@
                 </div>
 {#                图片#}
                 <div class="top-block-3"> {# selfdefine-top-block-3 #}
-                    <img src="http://pythonexcels.com/blog/wp-content/themes/twentyeleven/images/headers/hanoi.jpg" alt="">
+                    <img src="{% static 'zxsite/pictures/wheel.jpg' %}" alt="">
                 </div>
             </div>
 {#            导航条#}
@@ -27,7 +39,7 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="/about/">About</a></li>
 {#                    判断超级用户#}
-                    {% if user.is_superuser %}
+                    {% if user.is_staff %}
                         <li><a href="/manage/">Manage</a></li>
                     {% endif %}
 {#                    判断登录#}
@@ -48,6 +60,11 @@
                 {% block manage %}{% endblock %}
                 {% block about %}{% endblock %}
                 {% block indexbydate %}{% endblock %}
+                {% block indexbytag %}{% endblock %}
+                {% block tag-ins %}{% endblock %}
+                {% block userinfo %}{% endblock %}
+                {% block search %}{% endblock %}
+                {% block errors %}{% endblock %}
                     <div class="self-footer">
                         This is end,Thank you for visiting
                     </div>

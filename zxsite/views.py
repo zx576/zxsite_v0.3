@@ -1,10 +1,17 @@
 from django.shortcuts import render,redirect,HttpResponse,render_to_response
-from .models import Article,Bloger,Tag
+from .models import Article,Bloger,Tag,Comment
 from django.contrib.auth import logout,login,authenticate
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required,permission_required,user_passes_test
+from django.contrib.admin.views.decorators import staff_member_required
 from django.http import JsonResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core import serializers
+import datetime
+from django.template.loader import render_to_string
+from .forms import PortraitForm
+from django.db.models import Q
+
 #---------------------主页--------------------------------------------------
 def index(request):
     articles = Article.objects.all().order_by('-created_time')
@@ -13,9 +20,10 @@ def index(request):
     }
     return render(request,'zxsite/index.html',content)
 #---------------------管理页--------------------------------------------------
+
 def manage(request):
-    articles = Article.objects.all()
-    tags = Tag.objects.all()
+    articles = Article.objects.filter(status='P').order_by('-created_time')
+    tags = Tag.objects.filter(status='L')
     content = {
         'articles':articles,
         'tags':tags
@@ -24,13 +32,18 @@ def manage(request):
 
 #---------------------登录--------------------------------------------------
 def log_in(request):
+    print(request.POST)
+    print(request.GET)
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(username=username,password=password)
         if user and user.is_active:
             login(request,user)
-            return redirect('/')
+            if request.GET.get('next'):
+                return redirect(request.GET['next'])
+            else:
+                return redirect('/')
         else:
             return redirect('/login/')
     return render(request,'zxsite/login.html')
@@ -142,14 +155,52 @@ def handletags(tags):
     return tags_list
 
 #---------------------展示文章--------------------------------------------------
+
 def article_ins(request,atc_id):
-    print(atc_id)
+    # print(atc_id)
     atc_ins = Article.objects.get(id = atc_id)
+    comments = Comment.objects.filter(article=atc_ins).order_by('-created_time')
     content = {
-        'article':atc_ins
+        'article':atc_ins,
+        'comments':comments
     }
     return render(request,'zxsite/article_ins.html',content)
+
+#添加评论
+
+def newcomment(request,atc_id):
+    if request.method == 'POST':
+        context = request.POST.get('context')
+        print('step context')
+        article = Article.objects.get(id=atc_id)
+        if request.user.is_authenticated:
+            user = request.user
+            blogger = Bloger.objects.get(user=user)
+        else:
+            user = User.objects.get(username__exact='anonymous_user')
+            blogger = Bloger.objects.get(user=user)
+        newcomment_ins = Comment.objects.create(
+            context = context,
+            article = article,
+            author = blogger,
+            status = 'L'
+        )
+        # user = serializers.serialize('json',[user])
+        comments = Comment.objects.filter(article=article).order_by('-created_time')
+        # tags = Tag.objects.all()
+        content = {
+            'comments':comments
+            # 'article':article
+            # 'tags':tags
+        }
+
+        return render_to_response('zxsite/comment-inner.html',content)
+
+
 #---------------------About--------------------------------------------------
+# @staff_member_required(login_url='/login/',redirect_field_name='next')
+# @permission_required('zxsite.add_article',login_url='/login/')
+@user_passes_test(lambda u : u.is_staff,login_url='/login/',redirect_field_name='next')
 def about(request):
     # return render_to_response('zxsite/about.html')
     return render(request,'zxsite/about.html')
@@ -162,24 +213,223 @@ def about(request):
 #     }
 #     return render(request,'zxsite/indexbydate.html',content)
 
-# def datemore(request):
+#bydate
 def indexbydate(request):
-    article_list = Article.objects.all().order_by('-created_time')
+    article_list = Article.objects.all()
+    date_list = datelist(article_list)
+    article_list = article_list.order_by('-created_time')
+    print(article_list)
     paginator = Paginator(article_list,3)
     total_page = paginator.num_pages
     if request.method == 'POST':
-
-        clicktime = request.POST.get('clicktime')
+        print(request.POST)
+        clicktime = int(request.POST.get('clicktime'))
         page = clicktime
+        if page > total_page:
+            return HttpResponse('end')
         articles = paginator.page(page)
         articles = serializers.serialize('json',articles)
         content = {
-            'articles': articles
+            'articles': articles,
         }
+
         return JsonResponse(content)
     else:
         articles = paginator.page(1)
         content = {
-            'articles':articles
+            'articles':articles,
+            'datelist': date_list
         }
         return render(request,'zxsite/indexbydate.html',content)
+
+def datelist(atc_list):
+    thisyear = datetime.date.today().year
+    year = thisyear
+    result = {}
+    default_data = {}
+    while True:
+        atc = atc_list.filter(created_time__year = year)
+        if len(atc) > 0 :
+            result[year] = default_data
+            for i in range(1,13):
+                # default_data[i] = []
+                atc_month = atc.filter(created_time__month = i).order_by('-created_time')
+                print(type(atc_month))
+                default_data[i] = atc_month
+                print(default_data)
+            year -= 1
+        else:
+            break
+
+    print(result)
+    return result
+#---------------------indexbytag--------------------------------------------------
+#bytag
+def indexbytag(request):
+    tags = Tag.objects.all().order_by('created_time')
+
+    content = {
+        'tags':tags
+    }
+    return render(request,'zxsite/indexbytag.html',content)
+
+#tag instance
+def tag_ins(request,tagid):
+    tag = Tag.objects.get(id=tagid)
+    articles = tag.article_set.all().order_by('-created_time')
+    content ={
+        'tag':tag,
+        'articles':articles
+    }
+    return render(request,'zxsite/tag-ins.html',content)
+
+#---------------------edituser--------------------------------------------------
+#修改用户信息
+#
+# def edituser(request,userid):
+#     user = request.user
+#     bloger = Bloger.objects.get(user=user)
+#     if request.method == 'POST':
+#         form = PortraitForm(request.POST,request.FILES)
+#         print(request.POST)
+#         print(request.FILES)
+#         if form.is_valid():
+#             bloger.portrait = request.FILES['picfile']
+#             bloger.save()
+#             return redirect('/user/%s'%(userid))
+#     else:
+#         form = PortraitForm()
+#     content = {
+#         'user':user,
+#         'bloger':bloger,
+#         'form':form
+#     }
+#     return render(request,'zxsite/userinfo.html',content)
+
+def edituser(request,userid):
+    user = request.user
+    bloger = Bloger.objects.get(user_id=userid)
+    if request.method == 'POST':
+        print(request.POST)
+        print(request.FILES)
+        try:
+            bloger.portrait = request.FILES['picfile']
+            bloger.signiture = request.POST.get('signiture')
+            bloger.save()
+            return redirect('/user/%s' % (userid))
+        except:
+            bloger.signiture = request.POST.get('signiture')
+            bloger.save()
+            return HttpResponse('success')
+
+    content = {
+        'user':user,
+        'bloger':bloger,
+        # 'form':form
+    }
+    return render(request,'zxsite/userinfo.html',content)
+
+#---------------------search--------------------------------------------------
+def search(request):
+    # print(request.GET)
+    if request.method == 'GET':
+        search_content = request.GET.get('search')
+        search_article_result = Article.objects.filter(status='P').filter(
+            Q(title__contains=search_content) | Q(content__contains=search_content)
+        )
+        search_user_result = User.objects.filter(is_active=True).filter(
+            Q(username__contains=search_content) | Q(email__contains=search_content)
+        )
+        # search_bloger_result = Bloger.objects.filter(
+        #      Q(signiture__contains=search_content)
+        # )
+        if len(search_article_result) == 0:
+            search_article_result = []
+        if len(search_user_result) == 0:
+            search_user_result = []
+        # if len(search_bloger_result) == 0:
+        #     search_bloger_result = []
+
+        content = {
+            'articles': search_article_result,
+            'users': search_user_result,
+            # 'blogers': search_bloger_result
+        }
+        return render(request, 'zxsite/search.html', content)
+
+def managedit(request):
+    article_list = Article.objects.filter(status='E').order_by('-created_time')
+    paginator = Paginator(article_list,5)
+    total_page = paginator.num_pages
+    if request.method == 'POST':
+        getpage = request.POST.get('getpage')
+        if total_page < getpage:
+            return HttpResponse('end')
+        articles = paginator.page(getpage)
+        content = {
+            'articles':articles
+        }
+        return  render_to_response('zxsite/ajaxarticles.html',)
+    else:
+        articles = paginator.page(1)
+        content = {
+            'articles': articles
+        }
+        return render(request,'zxsite/m-edit.html',content)
+
+#删除文章
+def deletearticle(request,atc_id):
+    article = Article.objects.get(id=atc_id)
+    article.status = 'D'
+    article.save()
+    return redirect('/manage/')
+
+#编辑文章
+def editarticle(request,atc_id):
+    article = Article.objects.get(id=atc_id)
+    tags = Tag.objects.filter(article=article)
+    str_tags = ''
+    for tag in tags:
+        str_tags += tag.name +';'
+
+    print(str_tags)
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        tag_list = request.POST.get('tags')
+        tags = handletags(tag_list)
+        status = request.POST.get('status')
+        article.title = title
+        article.content = content
+        for tag in tags:
+            article.tags.add(tag)
+        article.save()
+        return HttpResponse('saved')
+    content = {
+        'article':article,
+        'tags':str_tags
+    }
+    return render(request,'zxsite/editarticle.html',content)
+
+def managedelete(request):
+    articles = Article.objects.filter(status='D').order_by('-created_time')
+    content = {
+        'articles':articles
+    }
+    return render(request,'zxsite/recyclebin.html',content)
+
+def truelydeletearticle(request,atc_id):
+    article = Article.objects.get(id=atc_id)
+    article.status = 'C'
+    article.save()
+    return redirect('/manage/')
+
+
+def redit(request,atc_id):
+    article = Article.objects.get(id=atc_id)
+    article.status = 'E'
+    article.save()
+    return redirect('/manage/')
+
+# def errorpage(request):
+#     return render(request,'zxsite/errors.html')

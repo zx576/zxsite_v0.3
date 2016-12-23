@@ -1,0 +1,46 @@
+{% extends 'zxsite/subbase1.html' %}
+{% block userinfo %}
+    <div class="self-about-block center-block">
+        <div class="center-block">
+            <img src="{{ bloger.portrait.url }}" alt="" class="img-circle center-block">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="submit" value="Update" class="btn btn-default pull-right invisible" id="submit" style="border: 0;outline: none">
+
+                <label class="btn btn-default btn-file pull-right" style="border: 0;outline: none" id="select">
+                    Select<input type="file" style="display: none;" name="picfile">
+                </label>
+                <textarea name="signiture" id="comment" rows="4" style=" width: 100%;border:0;outline: none;padding-left: 10px;resize: none;margin-top: 50px;font-size: 17px;text-align: center">{{ bloger.signiture }}</textarea>
+                <span class="help-block pull-right" id="helptext"></span>
+            </form>
+           
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            var sig = $('#comment').text();
+            $('#comment').blur(function () {
+                var newsig = $('#comment').val();
+                console.log(newsig);
+                console.log(sig);
+                if (newsig.length>0 && newsig != sig){
+                    $.post('/user/{{ user.id }}/',{
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        'signiture':newsig
+                    },function (data) {
+                        $('#helptext').text('Signiture Updated');
+                        console.log(data)
+                    })
+                }
+                var clear = function () {
+                    $('#helptext').text('')
+                };
+                setTimeout(clear,3000)
+            });
+            $('#select').change(function () {
+                $('#submit').removeClass('invisible')
+            })
+
+        })
+    </script>
+{% endblock %}

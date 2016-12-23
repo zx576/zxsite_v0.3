@@ -2,6 +2,58 @@
 {% block indexbydate %}
     <div class="row">
         <div class="col-md-3">
+            <div class="nav-side-menu">
+            <div class="brand" style="margin-top: 5px;font-size: 15px">
+                <span class="glyphicon glyphicon-calendar" style="padding-right: 10px"></span>
+                <b>Index By Date</b>
+            </div>
+            <div class="menu-list">
+                {% for year, year_set in datelist.items %}
+                    <ul class="menu-content" id="menu-content">
+                        <li style="font-size: 15px">
+                            <span class="glyphicon glyphicon-pencil" style="padding-right: 10px"></span>
+                            {{ year }}
+                        </li>
+
+                    <hr style="height: 0">
+
+                        {% for month, month_set in year_set.items %}
+                            <ul>
+                            {% if month_set.count > 0 %}
+                                    <li data-toggle="collapse" data-target="#subsub">
+                                        <span class="glyphicon glyphicon-file" style="padding-right: 10px"></span>
+                                        {{ month }}月
+                                        <span class="glyphicon glyphicon-chevron-down" style="padding-left: 100px;"></span>
+                                    </li>
+                                <ul class="sub-menu collapse" id="subsub">
+                                {% for p in month_set %}
+
+                                        <li style="font-size: 5px;font-weight: lighter;max-width: 180px;margin-left: -10px">
+                                            <span class="glyphicon glyphicon-pushpin"></span>
+                                            <a href="/article/{{ p.id }}/">{{ p }}</a>
+                                        </li>
+
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+                            </ul>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+            </div>
+
+
+
+
+{#            {% endfor %}#}
+{#            {% for article in datelist.2016.12 %}#}
+{#                {{ article.title }}#}
+{#                <br>#}
+
+
+
+
 
         </div>
         <div class="col-md-9" id="cm9">
@@ -28,29 +80,68 @@
                     <footer>_____________</footer>
                 </div>
             {% endfor %}
-{#            <div class="text-center">#}
-{#                <a id="wannamore">#}
-{#                    Wanna more...#}
-{#                </a>#}
-{#            </div>#}
+            <div class="text-center">
+                <button class="btn btn-primary" id="wannamore">
+                    Wanna more...
+                </button>
+            </div>
         </div>
     </div>
 
-{#    <script>#}
-{#        $(document).ready(function () {#}
-{#            var clicktime = 1;#}
-{#            $('#wannamore').click(function () {#}
-{#                $.post('',{#}
-{#                    'clicltime':clicktime,#}
-{#                    csrfmiddlewaretoken: '{{ csrf_token }}'#}
-{#                },function (data) {#}
-{#                    $('#cm9').append(#}
-{#                        #}
-{#                    )#}
-{#                })#}
-{#            })#}
-{#        })#}
-{#    </script>#}
+    <script>
+        $(document).ready(function () {
+            var clicktime = 2;
+            $('#wannamore').click(function () {
+                $.post('',{
+                    'clicktime':clicktime,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },function (data) {
+                    {#                    $('#cm9').append(#}
+                    if (data == 'end'){
+                        $('#wannamore').text('end').addClass('disabled')
+                    } else {
+                    dat = eval(data.articles);
+                    console.log(dat);
+                    for (i of dat){
+                        console.log(i);
+                        console.log(i.fields.title);
+                        var date = i.fields.created_time;
+                        var strdate = date.toString().substring(0,10)
+
+                        var tags = '';
+                        for (tag in i.fields.tags){
+{#                            $.get()#}
+                            var j = '<p class="text-capitalize"><a href="">'+ tag +'</a></p>';
+                            tags += j ;
+                        }
+
+                        var compile_data = '<div style="" class="self-atc-div">\
+                        \<h3 style="">'+i.fields.title+'</h3>\
+                        \<div style="">\
+                        \<p style="">创建于：'+strdate+'</p>\
+                        \|\
+                        \分类与：'+tags+'|\
+                        \<p>阅读次数：'+i.fields.views+'</p>\
+                        \</div>\
+                        \<p class="text-justify self-atc-div-p">'+i.fields.abstract+'</p>\
+                        \<button class="btn btn-default center-block">\
+                        \<a href=\"/article/'+i.pk+'\">阅读全文</a>\
+                        \</button>\
+                        \ <footer>_____________</footer>\
+                        \</div>';
+                        $('#cm9 :last').parent().prev().append(
+                                compile_data
+                        )}
+                    }
+
+
+                    clicktime++
+
+                })
+                })
+            })
+
+    </script>
 
 
 {% endblock %}

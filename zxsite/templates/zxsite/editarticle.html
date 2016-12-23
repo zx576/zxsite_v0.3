@@ -1,0 +1,139 @@
+{% extends 'zxsite/base1.html' %}
+{% block newarticle %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'zxsite/wangEditor/dist/css/newwangEditor.css' %}">
+    <script>
+        $('body').css('background-color','#e7e7e7');
+    </script>
+{#    <div class="center-block wangdiv" id="wangedit"></div>#}
+{#    <p id="info"></p>#}
+<div>
+    <div class="center-block newarticle-div" id="editdiv" >
+        <div class="container-fluid">
+            <form action="" method="post" id="form1" class="form-div" autocomplete="off">
+{#                <input type="hidden" name="userid" value="{{ user.id }}" id="userid1">#}
+{#                <input type="hidden" name="atcid" value="new" id="atcid1">#}
+                <div class="form-group">
+                    <input type="text" class="newarticle-input newarticle-input-title" value="{{ article.title }}" id="title">
+                </div>
+                <div class="input-group-sm self-natc-label">
+                    <span>标签:</span>
+                    <input type="text" class="form-control-static" id="tags" value="{{ tags }}">
+                    <span></span>
+                    <span id="span4status">
+                        <button class="self-edit-statusbtn">Status:P</button>
+{#                        <label for="status">status:</label>#}
+{#                        <b id="status">P</b>#}
+                    </span>
+
+
+                    <i class="glyphicon glyphicon-remove " id="fail" style="font-size: 20px;margin-left: 80px;color:red;"></i>
+                    <i class="glyphicon glyphicon-saved invisible" id="success" style="color: green;font-size: 20px;margin-left: 20px"></i>
+{#                    <i class="glyphicon glyphicon-cog " style="font-size: 20px  ;margin-left: 20px"></i>#}
+
+                </div>
+
+
+{#                <hr>#}
+
+                <div>
+                    <textarea name="" id="wangedit" cols="30" rows='40' class="form-control-static newarticle-input" style="border: 0;outline: none">
+                        {{ article.content | safe }}
+                    </textarea>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+{#    <div  class="pull-right" style="height:300px;width: 230px;background-color: #0f0f0f;">#}
+{##}
+{#    </div>#}
+</div>
+
+
+
+
+
+    <script type="text/javascript" src="{% static 'zxsite/wangEditor/dist/js/wangEditor.min.js' %}"></script>
+    <script type="text/javascript">
+        var editor = new wangEditor('wangedit');
+         editor.config.menus =  [
+        'bold',
+        'underline',
+        'italic',
+        'strikethrough',
+        'eraser',
+        'forecolor',
+        'quote',
+        'fontfamily',
+        'fontsize',
+        'unorderlist',
+        'orderlist',
+        'alignleft',
+        'aligncenter',
+        'alignright',
+        'link',
+        'img',
+        'location',
+        'insertcode',
+        'undo',
+        'redo',
+        'fullscreen'
+    ];
+        editor.create();
+
+    </script>
+    <script>
+    $('#span4status').click(function () {
+        var st = $('#status').text();
+        if (st != 'P'){
+            $('#status').text('P');
+        } else {
+            $('#status').text('D')
+        }
+    });
+        var save = function(){
+            console.log('saving');
+            var content = $('#wangedit').val();
+            var title = $('#title').val();
+            var tags = $('#tags').val();
+{#            var userid = $('#userid1').val();#}
+{#            var atcid = $('#atcid1').val();#}
+            var status = $('#status').text();
+            console.log(content,title,tags,status);
+            if (content.length > 10 && title.length >0){
+                console.log('step_if');
+{#                $('#info').text('saving');#}
+                $.post('',{
+                    'title' : title,
+                    'content':content,
+                    'tags':tags,
+{#                    'userid':userid,#}
+{#                    'atcid':atcid,#}
+                    'status':status,
+                   csrfmiddlewaretoken: '{{ csrf_token }}'
+                },function (data) {
+                   console.log('stepdata');
+{#                   var now = new Date();#}
+{#                   var str = now.toString();#}
+{#                   var nowstr = str.substring(0,24);#}
+                     $('#fail').addClass('invisible');
+                     $('#success').removeClass('invisible');
+{#                   $('#atcid1').val(data.atcid);#}
+{#                   console.log($('#atcid1').val())#}
+               });
+            } else {
+                $('#fail').removeClass('invisible');
+                $('#success').addClass('invisible');
+            }
+        };
+{#        setInterval(save,10000)#}
+    $('#fail').click(save);
+    $('.wangEditor-txt,#tags,#title').bind('input propertychange',function () {
+        $('#fail').removeClass('invisible');
+        $('#success').addClass('invisible');
+    })
+    </script>
+{% endblock %}

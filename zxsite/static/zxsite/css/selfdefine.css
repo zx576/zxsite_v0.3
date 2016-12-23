@@ -341,3 +341,48 @@ body {
     font-size: 20px;
     text-transform: capitalize;
 }
+
+/*.self-btn-hover :hover{*/
+    /*text-decoration: none;*/
+    /*background-color: #0f0f0f;*/
+    /*color: inherit;*/
+/*}*/
+.self-subbase-searchbtn{
+    font-family: 'Segoe UI';
+    /*font-weight: lighter;*/
+    border-bottom-width:1px ;
+    background-color: inherit;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+
+    border-bottom-color: #0f0f0f;
+    margin-left: -10px;
+    outline: none;
+}
+.self-subbase-searchinput{
+    font-weight: lighter;
+    border-bottom-width:1px ;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom-color: #0f0f0f;
+    outline: none;
+    width: 150px;
+}
+/*.self-subbase-searchinput:active{*/
+    /*width: 200px;*/
+/*}*/
+.self-search-block{
+    width: 600px;
+}
+.self-displayinline{
+    display: inline;
+}
+.self-edit-statusbtn{
+    background-color: inherit;
+    border: none;
+    font-family: 'Segoe UI';
+    font-weight:bold;
+    outline: none
+}

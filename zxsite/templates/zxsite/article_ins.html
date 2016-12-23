@@ -20,11 +20,78 @@
                 </div>
                  <p class="text-justify self-atc-div-p">{{ article.content | safe }}</p>
 
-                <hr>
+                <hr style="margin-top: -20px">
 
 {#                评论#}
+                <div>
+{#                    <form action="/comment/{{ article.id }}/" id="form1" method="post">#}
+{#                        {% csrf_token %}#}
+                        <label for="" class="label label-success pull-left" style="font-size: 18px">评论</label>
+                        <textarea name="comment" id="comment" rows="4" style=" width: 100%;border-color: #4cae4c;border-radius: 10px;outline: none;padding-left: 10px;resize: none"></textarea>
+                        <button class="btn btn-success pull-right" id='commentbtn' style="margin-top: 0">提交</button>
+{#                    </form>#}
+                </div>
+
+                <label for="" class="label label-default" style="font-size: 18px">最新评论</label>
+                <hr>
+
+                <ul id="commentul" class="list-unstyled">
+                    {% for comment in comments %}
+                        <li>
+                        <h4>
+                            <a href="/user/{{ comment.author.user_id}}">{{ comment.author }}</a>
+                            <span class="pull-right" style="font-size: 10px">{{ comment.created_time|date:'Y-m-d H:i' }}</span>
+                        </h4>
+                            <p>{{ comment }}</p>
+
+                        </li>
+                        <hr>
+
+                    {% endfor %}
+
+                </ul>
+
 
             </div>
         </div>
     </div>
+
+    <script>
+    $(document).ready(function () {
+
+
+        $('#commentbtn').click(function () {
+            var context = $('#comment').val();
+            console.log(context);
+            if (context.length > 0){
+
+
+
+{#                    $('#form1').submit(function () {#}
+{#                    console.log('e');#}
+{#                    return false;#}
+{#                });#}
+
+
+
+
+                $.post('/comment/{{ article.id }}/',
+                        {
+                            csrfmiddlewaretoken: '{{ csrf_token }}',
+                            'context':context
+                        },function (data) {
+{#                            var dat = eval(data.user);#}
+                            console.log(data);
+{#                            .user.0.fields.username#}
+{#                            var newcomment = '<li>'+dat['0'].fields.username+':'+context+'</li>';#}
+{#                            var data_str = data.toString()#}
+                            $('#commentul').html(data);
+                            $('#comment').val('')
+                        })
+            } else {
+                $("#form1").unbind().submit()
+            }
+        })
+    })
+    </script>
 {% endblock %}

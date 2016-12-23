@@ -7,6 +7,7 @@
         <div class="container-fluid">
             <form action="" class="form-div" method="post"> {#   selfdefine #}
                 {% csrf_token %}
+{#                <input type="hidden" name="next" value="{{ next }}" id="next">#}
                 <label for="" class="center-block self-login-WB-label">Welcome Back</label>
 
                 <hr>
@@ -26,4 +27,8 @@
         </div>
     </div>
 
+    <script>
+    var a = $('#next').val();
+    console.log(a)
+    </script>
 {% endblock %}

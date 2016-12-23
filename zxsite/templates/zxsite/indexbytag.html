@@ -1,0 +1,56 @@
+{% extends 'zxsite/subbase1.html' %}
+{% block indexbytag %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'zxsite/css/simple-sidebar.css' %}">
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="sidebar-nav" style="margin-left: -20px;margin-top: 10px">
+                <li class="sidebar-brand">
+                    All Tags
+                </li>
+                {% for tag in tags %}
+                    <li><a href="/tags/{{ tag.id }}">{{ tag.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-9">
+            {% for tag in tags %}
+{#                {{ tag.name }}#}
+                {% if tag.article_set.count > 0 %}
+                    <h3 class="text-capitalize">{{ tag.name }}:</h3>
+
+                    <hr>
+
+                    <div style="" class="self-atc-div">
+                    <h3 style="">{{ tag.article_set.all.0.title }}</h3>
+
+                    <div style="">
+                        <p style="">创建于：{{ tag.article_set.all.0.created_time|date:'Y-m-d' }}</p>
+                        |
+                        分类：
+                        {% for tag in tag.article_set.all.0.tags.all %}
+                        <p class="text-capitalize"><a href="">{{ tag }}</a></p>
+                        {% endfor %}
+                        |
+                        <p>阅读次数：{{tag.article_set.all.0.views }}</p>
+                    </div>
+
+                    <p class="text-justify self-atc-div-p">{{ tag.article_set.all.0.abstract | safe }}</p>
+
+                    <div class="center-block" >
+                        <button class="btn btn-default" >
+                        <a href="/article/{{ article.id }}">阅读全文</a>
+
+                        </button>
+                        <button class="btn btn-default">
+                            <a href="/tags/{{ tag.id }}">查看更多</a>
+                        </button>
+                    </div>
+                    <footer>_____________</footer>
+                </div>
+
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
