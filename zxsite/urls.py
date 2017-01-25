@@ -38,4 +38,7 @@ urlpatterns = [
 #---------------------------主页------------------------------------------------------------------
     url(r'user/(?P<userid>[0-9]+)/$',views.edituser,name='edituser'),
     # url(r'^/',views.errorpage,name='errors')
+#---------------------------echarts------------------------------------------------------------------
+    url(r'^echarts/$',views.echarts,name='echarts'),
+
 ]

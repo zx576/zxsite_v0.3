@@ -159,6 +159,9 @@ def handletags(tags):
 def article_ins(request,atc_id):
     # print(atc_id)
     atc_ins = Article.objects.get(id = atc_id)
+    #暂时的解决办法
+    atc_ins.views += 1
+    atc_ins.save()
     comments = Comment.objects.filter(article=atc_ins).order_by('-created_time')
     content = {
         'article':atc_ins,
@@ -166,8 +169,11 @@ def article_ins(request,atc_id):
     }
     return render(request,'zxsite/article_ins.html',content)
 
-#添加评论
+#浏览量函数
+# def countview(request):
+#     article = Article.
 
+#添加评论
 def newcomment(request,atc_id):
     if request.method == 'POST':
         context = request.POST.get('context')
@@ -433,3 +439,8 @@ def redit(request,atc_id):
 
 # def errorpage(request):
 #     return render(request,'zxsite/errors.html')
+
+# echarts 学习
+def echarts(request):
+    content = {}
+    return render(request,'zxsite/echarts.html',content)
